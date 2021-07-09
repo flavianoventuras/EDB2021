@@ -1,39 +1,26 @@
 #include <iostream>
-
+const int MAX = 10;
 using namespace std;
 
-class Pessoa{
-private:
-	int idade;	
-	int creditoCafe;
-public: 
-	Pessoa(int idade){ // construtor com parametro.
-		cout << "Construtor" << endl;
-		this->idade = idade;
-		this->creditoCafe = 5;
-	}
-	
-	Pessoa(){
-		cout << "Construtor sem parametros" << endl;
-		this->idade = 28;
-		this->creditoCafe = 10;
-	
-	}
-
-	void mostrar(){
-		cout << "Idade: " << this->idade << " | Credito: "  << this->creditoCafe << endl;
-	}
-	
-};
-//----------------------------------------------------------------------------
 int main(){
 
-	Pessoa josefa(35); // Nesse momento o construtor é executado
-	josefa.mostrar();
-
-	Pessoa joao;
-	joao.mostrar();
-
+	int *intPtr;
+	intPtr = new int [MAX];
+	
+	for(int j=0; j<MAX; j++){
+		intPtr[j] = j*j;
+	}
+	
+	for(int j = 0; j < MAX; j++){
+		cout << "\nValor de intPtr[" << j << "] = " << *(intPtr + j)
+	}
+	
+	cout << endl << endl;
+	
+	delete [] intPtr;
+	cout << "Desalocando memória... \n\n";
+	system("PAUSE");
+	
 	return 0;	
 
 }
